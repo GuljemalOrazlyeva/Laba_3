@@ -59,3 +59,38 @@ public class MainFrame extends JFrame {
     JMenu helpMenu = new JMenu("Справка");
     menuBar.add(helpMenu);
 
+    Action saveToTextAction = new AbstractAction("Сохранить в текстовый файл") {
+      public void actionPerformed(ActionEvent event) {
+        if (fileChooser==null) {
+
+
+          fileChooser = new JFileChooser();
+          fileChooser.setCurrentDirectory(new File("."));
+        }
+
+        if (fileChooser.showSaveDialog(MainFrame.this) ==
+                JFileChooser.APPROVE_OPTION)
+
+
+          saveToTextFile(fileChooser.getSelectedFile());
+      }
+    };
+
+
+    saveToTextMenuItem = fileMenu.add(saveToTextAction);
+
+    saveToTextMenuItem.setEnabled(false);
+
+
+    Action aboutProgramAction = new AbstractAction("О программе") {
+      @Override
+      public void actionPerformed(ActionEvent event ) {
+        JOptionPane.showMessageDialog(MainFrame.this,
+                new String[]{"Оразлыева Гулджемал Мыратдурдыевна", "6 группа"},
+                "О программе", JOptionPane.INFORMATION_MESSAGE);
+      }
+    };
+
+    aboutProgramMenuItem=helpMenu.add(aboutProgramAction);
+    aboutProgramMenuItem.setEnabled(true);
+
