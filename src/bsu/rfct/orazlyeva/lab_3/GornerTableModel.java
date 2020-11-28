@@ -1,7 +1,9 @@
 package bsu.rfct.orazlyeva.lab_3;
 
 import javax.swing.table.AbstractTableModel;
+
 @SuppressWarnings("serial")
+
 public class GornerTableModel extends AbstractTableModel {
     private Double[] coefficients;
     private Double from;
@@ -31,7 +33,9 @@ public class GornerTableModel extends AbstractTableModel {
 // Вычислить количество точек между началом и концом отрезка
 // исходя из шага табулирования
         return new Double(Math.ceil((to-from)/step)).intValue()+1;
+
     }
+
     public Object getValueAt(int row, int col) {
 // Вычислить значение X как НАЧАЛО_ОТРЕЗКА + ШАГ*НОМЕР_СТРОКИ
         double x = from + step*row;
